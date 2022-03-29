@@ -29,7 +29,12 @@ p{
     margin: 10px;
     margin-top: 70px;
     display: flex;
-    margin-left: 100px;
+    flex-direction: row;
+    margin-left: 150px;
+    width: 800px;
+    margin: auto;
+    /* left: 150px; */
+    /* background: #3d4ecc; */
 }
 
 #mid {
@@ -63,10 +68,11 @@ p{
 } */
 
 #profile-pic{
-    border: 10px solid;
+    border: 5px solid;
     border-color: #3d4ecc;
-    height: 300px;
-    border-radius: 200px;
+    height: 180px;
+    /* width: 200px; */
+    border-radius: 90px;
     /* margin-bottom: -400px; */
 }
 
@@ -75,16 +81,17 @@ p{
     flex-direction: column;
     margin-left: 50px;
     margin: 20px;
-    margin-left: 150px;
-    margin-right: 100px;
+    margin-left: 50px;
+    /* margin-right: 150px; */
+    /* margin-left: 70px; */
 }
 
 #intro-header p{
     font-family: 'Calibri';
-    font-weight: 20;
-    font-size: 80px;
+    font-weight: 10;
+    font-size: 40px;
     margin: 0;
-    border-bottom: 2px solid;
+    border-bottom: 1px solid;
     border-color: #4488e7;
 }
 
@@ -97,7 +104,7 @@ p{
 
 #intro-body {
     flex: 1;
-    font-size: 21px;
+    font-size: 11px;
 }
 
 #introduction {
