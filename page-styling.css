@@ -25,7 +25,7 @@ p{
 
 #header {
     flex: 1;
-    background: #ffff;
+    /* background: #ffff; */
     margin: 10px;
     margin-top: 70px;
     display: flex;
@@ -33,6 +33,7 @@ p{
     margin-left: 150px;
     width: 800px;
     margin: auto;
+    padding: 10px;
     /* left: 150px; */
     /* background: #3d4ecc; */
 }
@@ -41,9 +42,13 @@ p{
     flex: 4;
     display: flex;
     flex-direction: row;
-    background-color: #a0a6ba;
+    background-color: #A2A2A1FF;
     /* margin: 20px; */
 }
+
+/* #mid div{
+    padding-left: 10px;
+} */
 
 #footer {
     flex: 1;
@@ -69,7 +74,7 @@ p{
 
 #profile-pic{
     border: 5px solid;
-    border-color: #3d4ecc;
+    border-color: #00539CFF;
     height: 180px;
     /* width: 200px; */
     border-radius: 90px;
@@ -92,11 +97,11 @@ p{
     font-size: 40px;
     margin: 0;
     border-bottom: 1px solid;
-    border-color: #4488e7;
+    border-color: #00539CFF;
 }
 
 #name {
-    color: #4488e7;
+    color: #00539CFF;
     font-family: Arial;
     /* font-size: 80px; */
     font-weight: bold;
@@ -127,6 +132,7 @@ p{
 
 .projects {
     flex: 3;
+    background-color: #A2A2A1FF ;
 }
 
 
@@ -141,14 +147,26 @@ p{
     flex: 1;
     display: flex;
     flex-direction: row;
-    padding-bottom: 30px;
+    /* padding-top: 0px; */
+    padding: 15px;
+    padding-left: 0;
+    margin-left: 20px;
+    border: 1px solid;
+    border-top: 0;
+    border-left: 0;
+    margin-bottom: 30px;
+    border-color: #195190FF;
 }
+
+/* .projects *{
+    padding-left: 10px;
+} */
 
 .project-preview{
     /* flex: 1; */
-    height: 250px;
-    width: 350px;
-    border-radius: 20px;
+    height: 150px;
+    width: 250px;
+    /* border-radius: 20px; */
 }
 
 .project-details{
@@ -165,18 +183,21 @@ p{
 }
 
 .project-title{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     padding-bottom: 10px;
+    
 }
 
 .project-description{
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 10px;
+    line-height: 20px;
 }
 
 #project-heading {
-    font-size: 40px;
+    font-size: 30px;
+    color: #195190FF;
+    margin-left: 20px;
 }
 
 .right-pane {
