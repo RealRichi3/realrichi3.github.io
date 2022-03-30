@@ -171,11 +171,11 @@ p{
     padding-left: 0;
     margin-right: 20px;
     margin-left: 20px;
-    border: 2px solid;
+    border: 1px solid;
     border-bottom: 0;
     border-left: 0;
     margin-bottom: 30px;
-    border-color: rgb(121, 120, 120);;
+    border-color: #195190FF;
 }
 
 .project-preview{
@@ -208,13 +208,38 @@ p{
 }
 
 .links{
-    font-size: 13px;
+    font-size: 12px;
     color: #195190FF;
     margin-top: 15px;
 }
 
 .links:hover{
     color: rgb(21, 109, 209);
+}
+
+.pre-link{
+    font-size: 11px;
+    color: rgb(84, 84, 84);
+    /* font-style: italic; */
+}
+
+.link-area{
+    display:flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.link-area *{
+    margin-right:5px;
+}
+
+.main-link{
+    padding-left: 5px;
+    border: 1px solid;
+    border-color: #195190FF;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
 }
 
 .pane-heading {
