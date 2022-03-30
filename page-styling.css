@@ -137,7 +137,7 @@ p{
 
 .projects {
     flex: 3;
-    background-color: #A2A2A1FF ;
+    background-color: #F1F1F1 ;
     padding-left: 100px;
 }
 
@@ -215,7 +215,7 @@ p{
 
 .right-pane {
     flex: 1;
-    background-color: rgb(119, 119, 111);
+    background-color: rgb(69, 106, 148);
     padding-left: 5px;
 }
 
