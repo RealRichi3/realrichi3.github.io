@@ -258,6 +258,7 @@ p{
     margin: 20px;
     height: 420px;
     padding: 10px;
+    /* padding-bottom: 10px; */
 }
 
 .article-img{
@@ -277,6 +278,7 @@ p{
 
 .article-details {
     padding: 5px;
+    padding-bottom: 0px;
 }
 
 .published-date {
@@ -297,18 +299,25 @@ p{
     font-size: 12px;
     line-height: 20px;
     color: #43444b;
-    border: 1px solid;
-    border-color: rgb(119, 119, 111);
-    border-top: 0px;
+    /* border: 1px solid; */
+    /* border-color: rgb(119, 119, 111); */
+    /* border-top: 0px;
     border-left: 0;
-    border-right: 0;
+    border-right: 0; */
     padding-bottom: 30px;
 }
 
 .link-to {
     margin-top: 10px;
-    font-size: 13px;
+    margin-bottom: 0px;
+    border: 1px solid;
+    border-color: rgb(160, 160, 150);
+    border-bottom: 0px;
+    border-left: 0;
+    border-right: 0;
+    padding-top: 10px;
+    font-size: 11px;
     font-style: italic;
     color:#43444b;
-    text-align: right;    
+    text-align: left;    
 }
