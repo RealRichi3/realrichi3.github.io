@@ -255,7 +255,15 @@ p{
     margin-bottom: 0;
     position: absolute ;
     bottom: 0px;
+    max-height: 28px;
 }
+
+.icon:hover{
+    height: 28px;
+    width: 28px;
+    margin-right: 0px; 
+}
+
 
 .link-area *{
     margin-right:5px;
@@ -423,11 +431,6 @@ p{
     /* margin-bottom: 0; */
     width: 30px;
 }
-
-/* .icon{
-    height: 40px;
-    width: 40px;
-} */
 
 
 /* Styling for footer */
