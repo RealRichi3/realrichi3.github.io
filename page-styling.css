@@ -137,7 +137,7 @@ p{
 
 /* Styling for the profile, articles-pane, and code-todo side */
 
-.left-pane {
+/* .left-pane {
     flex: 1;
     margin: 20px;
     display: flex;
@@ -146,6 +146,12 @@ p{
 
 .code-todo-task {
     flex: 1;
+} */
+.right-pane {
+    flex: 1;
+    background-color: rgb(69, 106, 148);
+    /* padding: 20px; */
+    position: relative;
 }
 
 .projects {
@@ -186,11 +192,12 @@ p{
 
 .project-details{
     flex: 1;
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     padding-left: 50px;
     margin: 0;
     border: 2px, solid;
+    position:relative;
 }
 
 .project-title{
@@ -201,10 +208,25 @@ p{
 
 }
 
-.project-description{
+.project-description {
     font-size: 13px;
     line-height: 20px;
+    height: 60px;
+    margin-bottom: 5px;
+    overflow: hidden;
     color: rgb(84, 84, 84);
+}
+
+.lang{
+    font-size: 13px;
+    font-weight: bold;
+    color:rgb(68, 67, 67);
+}
+
+.lang-used{
+    font-size: 11px;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .links{
@@ -227,6 +249,9 @@ p{
     display:flex;
     flex-direction: row;
     margin-top: 10px;
+    margin-bottom: 0;
+    position: absolute ;
+    bottom: 0px;
 }
 
 .link-area *{
@@ -250,17 +275,6 @@ p{
     margin-bottom: 20px;
 
 }
-
-.right-pane {
-    flex: 1;
-    background-color: rgb(69, 106, 148);
-    padding-left: 5px;
-}
-
-#snippet-heading {
-    color: rgb(221, 221, 209)
-}
-
 
 /* BLOG Section */
 
@@ -345,4 +359,62 @@ p{
     font-style: italic;
     color:#43444b;
     text-align: left;    
+}
+
+
+/* Styling for Code snippet section */
+.right-pane{
+    position: relative;
+}
+
+#snippet-heading {
+    color: #F1F1F1;
+    /* pading-left: 0; */
+}
+
+.code {
+    padding: 20px;
+    padding-top: 15px;
+}
+
+#code-title{
+    color: #F1F1F1;
+    font-size: 14px;
+}
+
+#code-description{
+    font-size: 11px;
+    color: #d2d2d2;
+    padding-left: 5px;
+    /* margin-bottom: 30px; */
+    /* background-color: #ADADAD; */
+}
+
+.code-body{
+    border: 1px solid;
+    border-left: 0;
+    border-bottom: 0;
+    border-color: #ADADAD;
+    padding: 5px;
+    padding-left: 0;
+    padding-bottom: 0;
+    position: relative;
+}
+
+.equation {
+    color: white;
+    /* font-style: italic; */
+}
+
+.icon-container{
+    padding-left: 3px;
+    border: 1px solid;
+    border-right: 0;
+    border-top: 0;
+    border-color: #ADADAD;
+    /* position: absolute; */
+    bottom: 0;
+    margin-top: 10px;
+    /* margin-bottom: 0; */
+    width: 30px;
 }
