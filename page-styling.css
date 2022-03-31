@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box; 
+    font-family: sans-serif;
 }
 
 body, html{
@@ -70,7 +71,7 @@ p{
 
 #footer {
     flex: 1;
-    background-color: #9b9fae;
+    background-color: rgb(69, 106, 148);
     height: 100px;
     width: 100%;
 }
@@ -242,6 +243,8 @@ p{
 .pre-link{
     font-size: 11px;
     color: rgb(84, 84, 84);
+    /* position: absolute; */
+    /* bottom: 0; */
     /* font-style: italic; */
 }
 
@@ -265,6 +268,8 @@ p{
     border-right: 0;
     border-top: 0;
     border-bottom: 0;
+    position: relative;
+    /* width: 160px; */
 }
 
 .pane-heading {
@@ -417,4 +422,44 @@ p{
     margin-top: 10px;
     /* margin-bottom: 0; */
     width: 30px;
+}
+
+/* .icon{
+    height: 40px;
+    width: 40px;
+} */
+
+
+/* Styling for footer */
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 500px;
+    /* height: 10px; */
+    position: relative;
+    top: 30%;
+    /* padding-top: 40px; */
+}
+
+#contact {
+    font-size: 18px;
+    font-family: sans-serif;  
+    padding-top: 10px;  
+    margin-right: 10px;
+}
+
+.footer-container *{
+    margin-right: 10px;
+}
+
+.contact-icon{
+    height: 40px;
+    width: 40px;
+}
+
+.contact-icon:hover{
+    height: 45px;
+    width: 45px;
 }
