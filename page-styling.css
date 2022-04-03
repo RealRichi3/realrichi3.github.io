@@ -61,9 +61,9 @@ p{
 }
 
 #footer {
-    flex: 1;
+    /* flex: 1; */
     background-color: rgb(69, 106, 148);
-    height: 100px;
+    /* height: 250px; */
     width: 100%;
 }
 
@@ -382,13 +382,16 @@ p{
     margin: auto;
     width: 550px;
     position: relative;
-    top: 30%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    /* margin: auto auto; */
+    /* top: 30%; */
 }
 
 #contact {
     font-size: 18px;
-    font-family: sans-serif;  
-    padding-top: 10px;  
+    font-family: sans-serif;   
     margin-right: 10px;
 }
 
