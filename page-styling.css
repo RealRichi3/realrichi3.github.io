@@ -11,15 +11,13 @@ body, html{
     display: flex;
     flex-direction: column;
     font-family: sans-serif;
-    width: 100%;
-    height: 100vh;
+    width: 1300px;
+    height: 100%;
     margin: auto;
-    /* padding: 0; */
     border-radius: 15px;
     border: 1px solid;
     border-color: #43444b00;
     position: relative;
-    /* margin: 0; */
 }
 
 p{
@@ -27,30 +25,26 @@ p{
 }
 
 #main-header{
-    /* background: rgb(223, 207, 207); */
     margin-bottom: 10px;
 }
 
 #header {
-    /* padding-l: auto; */
     margin: auto;
     display: flex;
     flex-direction: row;
     padding-left: 150px;
     width: 800px;
-    /* margin: auto; */
     padding: 10px;
-    /* left: 150px; */
-    /* background: #3d4ecc; */
+
 }
 
 #mid {
-    /* flex: 4; */
     display: flex;
     flex-direction: row;
     background-color: #A2A2A1FF;
     margin-top: 20px;
-    /* margin: 20px; */
+    margin: auto;
+    width: 100%;
 }
 
 #blog {
@@ -65,9 +59,6 @@ p{
     border-top: 0;
     border-color: #195190FF;
 }
-/* #mid div{
-    padding-left: 10px;
-} */
 
 #footer {
     flex: 1;
@@ -76,28 +67,15 @@ p{
     width: 100%;
 }
 
-
-/* styling for the main header */
-
-/* .cover-img {
-    padding-bottom: -20px;
-} */
-
 .intro {
     flex: 1;
 }
-
-/* .cover-img{
-    height: 60%;    
-} */
 
 #profile-pic{
     border: 5px solid;
     border-color: #00539CFF;
     height: 180px;
-    /* width: 200px; */
     border-radius: 90px;
-    /* margin-bottom: -400px; */
 }
 
 .intro {
@@ -106,8 +84,6 @@ p{
     margin-left: 50px;
     margin: 20px;
     margin-left: 50px;
-    /* margin-right: 150px; */
-    /* margin-left: 70px; */
 }
 
 #intro-header p{
@@ -122,7 +98,6 @@ p{
 #name {
     color: #00539CFF;
     font-family: Arial;
-    /* font-size: 80px; */
     font-weight: bold;
 }
 
@@ -137,21 +112,9 @@ p{
 
 
 /* Styling for the profile, articles-pane, and code-todo side */
-
-/* .left-pane {
-    flex: 1;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.code-todo-task {
-    flex: 1;
-} */
 .right-pane {
     flex: 1;
     background-color: rgb(69, 106, 148);
-    /* padding: 20px; */
     position: relative;
 }
 
@@ -163,7 +126,6 @@ p{
 
 
 /* Projects pane styling */
-
 .body-project .body-content {
     display: flex;
     flex-direction: column;
@@ -173,7 +135,6 @@ p{
     flex: 1;
     display: flex;
     flex-direction: row;
-    /* padding-top: 0px; */
     padding: 15px;
     padding-left: 0;
     margin-right: 20px;
@@ -183,18 +144,16 @@ p{
     border-left: 0;
     margin-bottom: 30px;
     border-color: #195190FF;
+    max-height: 180px;
 }
 
 .project-preview{
     height: 150px;
     width: 250px;
-    /* border-radius: 20px; */
 }
 
 .project-details{
     flex: 1;
-    /* display: flex; */
-    /* flex-direction: column; */
     padding-left: 50px;
     margin: 0;
     border: 2px, solid;
@@ -243,9 +202,6 @@ p{
 .pre-link{
     font-size: 11px;
     color: rgb(84, 84, 84);
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* font-style: italic; */
 }
 
 .link-area{
@@ -277,7 +233,6 @@ p{
     border-top: 0;
     border-bottom: 0;
     position: relative;
-    /* width: 160px; */
 }
 
 .pane-heading {
@@ -290,11 +245,11 @@ p{
 }
 
 /* BLOG Section */
-
 .main-articles {
     display: flex;
     flex-direction: column;
-    width: 100%
+    width: 100%;
+    margin: auto;
 }
 
 .articles {
@@ -310,13 +265,11 @@ p{
     margin: 20px;
     height: 420px;
     padding: 10px;
-    /* padding-bottom: 10px; */
 }
 
 .article-img{
     width: 100%;
     height: 100px;
-    /* padding: 5px; */
     padding-bottom: 0;
     border: 1px solid;
     border-color: #ADADAD;
@@ -336,7 +289,6 @@ p{
 .published-date {
     font-size: 12px;
     color: #ADADAD;    
-    /* margin: auto; */
     border: 4px solid;
     border-color: #195190FF;
     border-top: 0px;
@@ -351,11 +303,6 @@ p{
     font-size: 12px;
     line-height: 20px;
     color: #43444b;
-    /* border: 1px solid; */
-    /* border-color: rgb(119, 119, 111); */
-    /* border-top: 0px;
-    border-left: 0;
-    border-right: 0; */
     padding-bottom: 30px;
 }
 
@@ -382,7 +329,6 @@ p{
 
 #snippet-heading {
     color: #F1F1F1;
-    /* pading-left: 0; */
 }
 
 .code {
@@ -399,8 +345,6 @@ p{
     font-size: 11px;
     color: #d2d2d2;
     padding-left: 5px;
-    /* margin-bottom: 30px; */
-    /* background-color: #ADADAD; */
 }
 
 .code-body{
@@ -416,7 +360,6 @@ p{
 
 .equation {
     color: white;
-    /* font-style: italic; */
 }
 
 .icon-container{
@@ -425,10 +368,8 @@ p{
     border-right: 0;
     border-top: 0;
     border-color: #ADADAD;
-    /* position: absolute; */
     bottom: 0;
     margin-top: 10px;
-    /* margin-bottom: 0; */
     width: 30px;
 }
 
@@ -440,10 +381,8 @@ p{
     flex-direction: row;
     margin: auto;
     width: 550px;
-    /* height: 10px; */
     position: relative;
     top: 30%;
-    /* padding-top: 40px; */
 }
 
 #contact {
