@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box; 
     font-family: sans-serif;
+    border-radius: 3px;
+    
 }
 
 body, html{
@@ -11,7 +13,7 @@ body, html{
     display: flex;
     flex-direction: column;
     font-family: sans-serif;
-    width: 1300px;
+    width: 1250px;
     height: 100%;
     margin: auto;
     border-radius: 15px;
@@ -150,6 +152,7 @@ p{
 .project-preview{
     height: 150px;
     width: 250px;
+    border-radius: 5px;
 }
 
 .project-details{
@@ -257,6 +260,7 @@ p{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-bottom: 50px;
 }
+
 
 .article {
     display: flex;
