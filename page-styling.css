@@ -47,6 +47,7 @@ p{
     margin-top: 20px;
     margin: auto;
     width: 100%;
+    /* margin-bottom: 30px; */
 }
 
 #blog {
@@ -247,83 +248,6 @@ p{
 
 }
 
-/* BLOG Section */
-.main-articles {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: auto;
-}
-
-.articles {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-bottom: 50px;
-}
-
-
-.article {
-    display: flex;
-    flex-direction: column;
-    background-color: #F1F1F1;
-    margin: 20px;
-    height: 420px;
-    padding: 10px;
-}
-
-.article-img{
-    width: 100%;
-    height: 100px;
-    padding-bottom: 0;
-    border: 1px solid;
-    border-color: #ADADAD;
-}
-
-.article-title{
-    color: #195190FF;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.article-details {
-    padding: 5px;
-    padding-bottom: 0px;
-}
-
-.published-date {
-    font-size: 12px;
-    color: #ADADAD;    
-    border: 4px solid;
-    border-color: #195190FF;
-    border-top: 0px;
-    border-left: 0;
-    border-right: 0;
-    padding: 0 0 15px 0;
-    width: 10   0px;   
-}
-
-.article-summary {
-    padding-top: 15px;
-    font-size: 12px;
-    line-height: 20px;
-    color: #43444b;
-    padding-bottom: 30px;
-}
-
-.link-to {
-    margin-top: 10px;
-    margin-bottom: 0px;
-    border: 1px solid;
-    border-color: rgb(160, 160, 150);
-    border-bottom: 0px;
-    border-left: 0;
-    border-right: 0;
-    padding-top: 10px;
-    font-size: 11px;
-    font-style: italic;
-    color:#43444b;
-    text-align: left;    
-}
 
 
 /* Styling for Code snippet section */
@@ -378,8 +302,82 @@ p{
 }
 
 
-/* Styling for footer */
+/* BLOG Section */
+.article {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: auto;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    background-color: #195190FF;
+    /* height: 500px; */
+    padding: 30px;
+}
 
+.article > div {
+    padding: 10px;
+}
+
+.article > div * {
+    margin-bottom: 5px;
+}
+.articlePreviewImg {
+    margin: auto 0;
+    height: 200px;
+    width: 100%;
+}
+
+.articleTitle {
+    color: #F1F1F1;
+    font-size: 20px;
+    font-weight: bolder;
+    border: 1px solid;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-bottom: 5px;
+}
+
+.dateAndClick{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+} 
+
+.left {
+    flex:1;
+    display:flex;
+    flex-direction: row;
+}
+
+.blogIcon{
+    /* padding-top: 3px; */
+    height: 14px;
+    width: 14px;
+    float: left;
+    margin-right: 5px;
+}
+
+.publishedDate {
+    /* flex: 1; */
+    color: #ADADAD;
+    margin: 0px;
+    padding: 0
+}
+
+.articleLink {
+    flex: 1;
+    text-align: right;
+    color: #A2A2A1FF;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Styling for footer */
 .footer-container {
     display: flex;
     flex-direction: row;
