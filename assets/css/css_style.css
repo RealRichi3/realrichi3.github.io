@@ -1461,12 +1461,13 @@ footer {
   position: relative;
 }
 .portfolioContainer .grid-item figure {
-  /* height: 500px; */
+  height: 250px;
   /* width: 350px; */
 }
 
 .portfolioContainer .grid-item figure> img {
   object-fit: cover;
+  height: 100%;
 }
 
 .flip4 li {
