@@ -3,8 +3,9 @@ $(document).ready(function () {
     $(window).on('load', function () {
         setTimeout(function () {
             removeLoader();
-        }, 1000);
+        }, 200);
     })
+    
     //----Go to Top Button
     const toTop = document.querySelector(".gotop");
     window.addEventListener("scroll", () => {
@@ -293,7 +294,6 @@ function startportAnimation() {
 function starttestAnimation() {
     $('.test_animate_01').addClass('animated slideInLeft');
 }
-
 //---- Test end
 
 
