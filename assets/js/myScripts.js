@@ -1,11 +1,12 @@
 $(document).ready(function () {
     //--preloader
+    removeLoader();
     $(window).on('load', function () {
+        removeLoader();
         setTimeout(function () {
-            removeLoader();
         }, 200);
     })
-    
+
     //----Go to Top Button
     const toTop = document.querySelector(".gotop");
     window.addEventListener("scroll", () => {
