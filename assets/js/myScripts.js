@@ -3,9 +3,7 @@ $(document).ready(function () {
     removeLoader();
     $(window).on('load', function () {
         removeLoader();
-        setTimeout(function () {
-        }, 200);
-    })
+            })
 
     //----Go to Top Button
     const toTop = document.querySelector(".gotop");
