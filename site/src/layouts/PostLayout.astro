@@ -29,12 +29,12 @@ function fmt(d: Date) {
 <BaseLayout title={`${title} - Richie Moluno`} description={description}>
   <div class="max-w-content mx-auto px-6 pb-4 min-h-[calc(100vh-8rem)] flex flex-col">
     <article class="prose-richie flex flex-col flex-1">
-      <p class="mt-12 text-[12px] font-mono text-muted tracking-wide">
+      <p class="mt-12 text-[13px] font-mono text-muted tracking-wide">
         <a class="hover:text-accent" href={`${base}/blog`}>← blog</a>
       </p>
 
       <header class="mt-6">
-        <div class="text-[12px] font-mono text-muted tracking-wide">
+        <div class="text-[13px] font-mono text-muted tracking-wide">
           <span>{fmt(date)}</span>
           <span class="mx-1.5">·</span>
           <span>Essay</span>
@@ -58,8 +58,8 @@ function fmt(d: Date) {
         </blockquote>
         <TagList tags={tags} basePath="/blog?tags=" />
         {toc.length > 0 && (
-          <details class="mt-4 bg-surface-soft rounded-lg px-4 py-3 text-[12px] font-mono text-muted tracking-wide">
-            <summary class="cursor-pointer hover:text-accent select-none uppercase tracking-[0.18em] text-[10px]">Table of contents</summary>
+          <details class="mt-4 bg-surface-soft rounded-lg px-4 py-3 text-[13px] font-mono text-muted tracking-wide">
+            <summary class="cursor-pointer hover:text-accent select-none uppercase tracking-[0.18em] text-[11px]">Table of contents</summary>
             <ul class="mt-3 leading-snug">
               {toc.map((h) => (
                 <li class:list={[h.depth === 2 ? 'mt-2 first:mt-0' : 'mt-1 pl-5 relative']}>
@@ -72,15 +72,15 @@ function fmt(d: Date) {
         )}
       </header>
 
-      <div class="mt-10 text-[15px] leading-[1.75]">
+      <div class="mt-10 text-[16px] leading-[1.75]">
         {isEmpty ? (
           <aside class="not-prose border border-divider rounded-lg bg-surface-soft px-6 py-8 text-center">
-            <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-muted">Open question</p>
+            <p class="text-[12px] font-mono uppercase tracking-[0.18em] text-muted">Open question</p>
             <p
-              class="mt-3 text-[15px]"
+              class="mt-3 text-[16px]"
               style="color: color-mix(in srgb, var(--color-text) 80%, var(--color-bg));"
             >Still drafting. Sitting with the question before writing the answer.</p>
-            <p class="mt-1 text-[13px] text-muted italic">The writing is the thinking - come back later.</p>
+            <p class="mt-1 text-[14px] text-muted italic">The writing is the thinking - come back later.</p>
           </aside>
         ) : (
           <slot />
@@ -88,7 +88,7 @@ function fmt(d: Date) {
       </div>
 
       {(prev || next) && (
-        <nav class="mt-auto pt-6 border-t border-divider flex justify-between text-[12px] font-mono text-muted tracking-wide clear-both">
+        <nav class="mt-auto pt-6 border-t border-divider flex justify-between text-[13px] font-mono text-muted tracking-wide clear-both">
           {prev ? <a class="hover:text-accent max-w-[45%]" href={`${base}/blog/${prev.slug}`}>← {prev.title}</a> : <span />}
           {next ? <a class="hover:text-accent max-w-[45%] text-right" href={`${base}/blog/${next.slug}`}>{next.title} →</a> : <span />}
         </nav>

@@ -22,7 +22,7 @@ const stack = Array.from(stackSet).sort();
         Some of the things I've built, in progress or shipped.
       </blockquote>
       {stack.length > 0 && (
-        <p class="mt-4 text-[12px] font-mono text-muted tracking-wide lowercase flex flex-wrap gap-x-3 gap-y-1 items-baseline">
+        <p class="mt-4 text-[13px] font-mono text-muted tracking-wide lowercase flex flex-wrap gap-x-3 gap-y-1 items-baseline">
           <span>stack:</span>
           {stack.map((t) => (
             <button type="button" class="tag-toggle hover:text-accent transition-colors" data-tag={t}>{t}</button>
@@ -45,11 +45,11 @@ const stack = Array.from(stackSet).sort();
         return (
           <li class="filter-item flex gap-5 items-start bg-surface-soft rounded-lg p-5" data-tags={p.data.stack.join('|')}>
             <div class="min-w-0 flex-1">
-              <div class="text-[11px] font-mono text-muted opacity-60 tracking-wide">
+              <div class="text-[12px] font-mono text-muted opacity-60 tracking-wide">
                 <span>{p.data.year}</span>
                 {p.data.featured && (<><span class="mx-1.5">·</span><span>featured</span></>)}
               </div>
-              <p class="mt-1 text-[15px]">
+              <p class="mt-1 text-[16px]">
                 <a class="text-accent hover:underline" href={href} {...(external ? { rel: 'noopener', target: '_blank' } : {})}>
                   {p.data.name}{external && ' ↗'}
                 </a>
@@ -64,7 +64,7 @@ const stack = Array.from(stackSet).sort();
                     </a>
                   )}
                   {p.data.links.site && (
-                    <a class="inline-flex items-center text-[12px] font-mono hover:text-accent" href={p.data.links.site} rel="noopener" target="_blank">
+                    <a class="inline-flex items-center text-[13px] font-mono hover:text-accent" href={p.data.links.site} rel="noopener" target="_blank">
                       site ↗
                     </a>
                   )}

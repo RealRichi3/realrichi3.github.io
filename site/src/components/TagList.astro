@@ -22,7 +22,7 @@ function hrefFor(t: string) {
 {tags.length > 0 && (
   <p class:list={['tag-list mt-1 relative', hasOverflow ? 'has-overflow w-[16rem] max-w-full' : 'max-w-full']}>
     <span class="block overflow-hidden">
-      <span class="tag-slider inline-block whitespace-nowrap text-[12px] font-mono text-muted tracking-wide opacity-60 lowercase">
+      <span class="tag-slider inline-block whitespace-nowrap text-[13px] font-mono text-muted tracking-wide opacity-60 lowercase">
         {tags.map((t, i) => (
           <>
             {i > 0 && <span class="mx-1.5">·</span>}
@@ -37,7 +37,7 @@ function hrefFor(t: string) {
     </span>
     {hasOverflow && (
       <span
-        class="tag-more absolute right-0 top-0 pl-14 pt-1 text-[12px] font-mono text-muted tracking-wide lowercase cursor-default"
+        class="tag-more absolute right-0 top-0 pl-14 pt-1 text-[13px] font-mono text-muted tracking-wide lowercase cursor-default"
         style="background:linear-gradient(to left, var(--color-bg) 45%, transparent 100%);"
       >· +{tags.length - max} more</span>
     )}

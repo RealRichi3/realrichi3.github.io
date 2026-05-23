@@ -18,7 +18,7 @@ const tags = Array.from(tagSet).sort();
         Things I found worth a click. Newest first. Toggle a tag to filter.
       </blockquote>
       {tags.length > 0 && (
-        <p class="mt-4 text-[12px] font-mono text-muted tracking-wide lowercase flex flex-wrap gap-x-3 gap-y-1 items-baseline">
+        <p class="mt-4 text-[13px] font-mono text-muted tracking-wide lowercase flex flex-wrap gap-x-3 gap-y-1 items-baseline">
           <span>tags:</span>
           {tags.map((t) => (
             <button type="button" class="tag-toggle hover:text-accent transition-colors" data-tag={t}>{t}</button>
