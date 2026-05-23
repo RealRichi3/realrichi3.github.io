@@ -1,0 +1,67 @@
+/* site/src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neutral tokens mirror Hugo PaperMod / lilianweng with separate surface
+   tokens for elevated cards. */
+:root {
+  --color-bg:           #f5f5f5;            /* page bg */
+  --color-surface:      #ffffff;            /* card bg, lifts above page */
+  --color-surface-soft: #fafafa;            /* mid-tone card bg */
+  --color-text:         rgb(30, 30, 30);    /* PaperMod --primary */
+  --color-muted:        rgb(108, 108, 108); /* PaperMod --secondary */
+  --color-accent:       #1d4ed8;            /* blue */
+  --color-divider:      rgb(229, 229, 229); /* PaperMod --border */
+}
+
+html.dark {
+  --color-bg:           rgb(29, 30, 32);    /* PaperMod --theme dark */
+  --color-surface:      rgb(46, 46, 51);    /* PaperMod --entry dark */
+  --color-surface-soft: rgb(34, 35, 38);
+  --color-text:         rgb(218, 218, 219);
+  --color-muted:        rgb(155, 156, 157);
+  --color-accent:       #60a5fa;
+  --color-divider:      rgb(51, 51, 51);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+body {
+  font-family: theme('fontFamily.sans');
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Softened text shared across all main page content. */
+main h1,
+main h2,
+main h3,
+main p,
+main li {
+  color: color-mix(in srgb, var(--color-text) 80%, var(--color-bg));
+}
+
+/* Shared "intro quote" lede style. */
+.intro-quote {
+  background: var(--color-surface-soft);
+  border-left: 2px solid var(--color-divider);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-style: italic;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}

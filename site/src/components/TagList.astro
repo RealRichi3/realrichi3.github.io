@@ -1,0 +1,76 @@
+---
+// site/src/components/TagList.astro
+// mode='link' (default): tags are <a> linking to basePath + tag.
+// mode='toggle': tags are <button class="tag-toggle"> hooks for FilterScript.
+// If basePath ends with '=', tag is appended directly (query-string style),
+// otherwise joined with '/'.
+interface Props {
+  tags: string[];
+  basePath: string;
+  max?: number;
+  mode?: 'link' | 'toggle';
+}
+const { tags, basePath, max = 4, mode = 'link' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const hasOverflow = tags.length > max;
+function hrefFor(t: string) {
+  return basePath.endsWith('=')
+    ? `${base}${basePath}${encodeURIComponent(t)}`
+    : `${base}${basePath}/${encodeURIComponent(t)}`;
+}
+---
+{tags.length > 0 && (
+  <p class:list={['tag-list mt-1 relative', hasOverflow ? 'has-overflow w-[16rem] max-w-full' : 'max-w-full']}>
+    <span class="block overflow-hidden">
+      <span class="tag-slider inline-block whitespace-nowrap text-[12px] font-mono text-muted tracking-wide opacity-60 lowercase">
+        {tags.map((t, i) => (
+          <>
+            {i > 0 && <span class="mx-1.5">·</span>}
+            {mode === 'toggle' ? (
+              <button type="button" class="tag-toggle hover:text-accent transition-colors" data-tag={t}>{t}</button>
+            ) : (
+              <a class="hover:text-accent transition-colors" href={hrefFor(t)}>{t}</a>
+            )}
+          </>
+        ))}
+      </span>
+    </span>
+    {hasOverflow && (
+      <span
+        class="tag-more absolute right-0 top-0 pl-14 pt-1 text-[12px] font-mono text-muted tracking-wide lowercase cursor-default"
+        style="background:linear-gradient(to left, var(--color-bg) 45%, transparent 100%);"
+      >· +{tags.length - max} more</span>
+    )}
+  </p>
+)}
+
+<style>
+  .tag-list.has-overflow .tag-slider,
+  .tag-list.has-overflow .tag-more {
+    transition: transform 700ms ease-in-out, opacity 250ms ease-out;
+  }
+  .tag-list.has-overflow.is-open .tag-slider {
+    transform: translateX(calc(-100% + 16rem));
+  }
+  .tag-list.has-overflow.is-open .tag-more {
+    opacity: 0;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    document.addEventListener('mouseenter', (e) => {
+      const t = e.target;
+      if (t && t.classList && t.classList.contains('tag-more')) {
+        const list = t.closest('.tag-list.has-overflow');
+        if (list) list.classList.add('is-open');
+      }
+    }, true);
+    document.addEventListener('mouseleave', (e) => {
+      const t = e.target;
+      if (t && t.classList && t.classList.contains('tag-list')) {
+        t.classList.remove('is-open');
+      }
+    }, true);
+  })();
+</script>

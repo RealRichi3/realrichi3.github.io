@@ -1,0 +1,58 @@
+---
+// site/src/components/RecentProjects.astro
+import { getCollection } from 'astro:content';
+import Description from './Description.astro';
+import TagList from './TagList.astro';
+import Icon from './Icon.astro';
+import { HOMEPAGE_LIMITS } from '../lib/site-config';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const all = (await getCollection('projects'))
+  .sort((a, b) => b.data.year - a.data.year);
+const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
+---
+<section class="posts h-full pt-2">
+  <div class="border-t-2 border-accent w-12 mb-4"></div>
+  <h2 class="text-[1.05rem] font-semibold mb-5">Recent Projects</h2>
+  <ul class="post-list space-y-5">
+    {recent.map((p) => {
+      const detail = p.body && p.body.trim().length > 0;
+      const href = detail
+        ? `${base}/projects/${p.slug}`
+        : p.data.links.site ?? p.data.links.repo ?? `${base}/projects/${p.slug}`;
+      const external = !!(!detail && (p.data.links.site || p.data.links.repo));
+      return (
+        <li>
+          <div class="text-[11px] font-mono text-muted opacity-60 tracking-wide">
+            <span>{p.data.year}</span>
+          </div>
+          <div class="mt-1 flex items-baseline gap-2 flex-wrap">
+            <p class="text-[15px]">
+              <a class="text-accent hover:underline" href={href} {...(external ? { rel: 'noopener', target: '_blank' } : {})}>
+                {p.data.name}{external && ' ↗'}
+              </a>
+            </p>
+            <span class="flex items-center gap-2 text-muted">
+              {p.data.links.repo && (
+                <a class="inline-flex items-center hover:text-accent" href={p.data.links.repo} rel="noopener" target="_blank" aria-label="GitHub repo" title="GitHub repo">
+                  <Icon name="github" size={14} />
+                </a>
+              )}
+              {p.data.links.site && (
+                <a class="text-[11px] font-mono hover:text-accent" href={p.data.links.site} rel="noopener" target="_blank">site ↗</a>
+              )}
+            </span>
+          </div>
+          <Description text={p.data.oneLiner} />
+          <TagList tags={p.data.stack} basePath="/projects?tags=" />
+        </li>
+      );
+    })}
+    {recent.length === 0 && <li class="text-muted text-sm">no projects yet.</li>}
+  </ul>
+  {all.length > 0 && (
+    <p class="see-more mt-5 text-[13px]">
+      <a class="text-accent" href={`${base}/projects`}>See all {all.length} projects →</a>
+    </p>
+  )}
+</section>

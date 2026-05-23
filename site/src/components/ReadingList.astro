@@ -1,0 +1,41 @@
+---
+// site/src/components/ReadingList.astro — dense 2-col reading list.
+// Tag chips are <button class="tag-toggle"> hooks for FilterScript.astro;
+// include <FilterScript /> on the parent page to enable filtering.
+import { formatDate, hostFromUrl } from '../lib/format';
+import type { ReadingEntry } from '../lib/reading';
+
+interface Props { items: ReadingEntry[]; }
+const { items } = Astro.props;
+---
+<ul class="reading-list mt-8 sm:columns-2 sm:gap-x-10">
+  {items.map((r) => (
+    <li
+      class="reading-item filter-item py-3 border-b border-divider break-inside-avoid"
+      data-slug={r.slug}
+      data-tags={r.data.tags.join('|')}
+    >
+      <div class="text-[11px] font-mono text-muted opacity-60 tracking-wide flex flex-wrap items-baseline gap-x-2">
+        <span class="tabular-nums">{formatDate(r.data.date)}</span>
+        <span>·</span>
+        <span>{r.data.source ?? hostFromUrl(r.data.url)}</span>
+        {r.data.tags.length > 0 && (
+          <>
+            <span>·</span>
+            <span>{r.data.tags.slice(0, 3).map((t, i) => (
+              <>
+                {i > 0 && ' · '}
+                <button type="button" class="tag-toggle hover:text-accent" data-tag={t}>{t}</button>
+              </>
+            ))}{r.data.tags.length > 3 && <span> · +{r.data.tags.length - 3}</span>}</span>
+          </>
+        )}
+      </div>
+      <p class="mt-0.5 text-[14px]">
+        <a class="text-accent hover:underline" href={r.data.url} rel="noopener" target="_blank">{r.data.title} ↗</a>
+      </p>
+      {r.data.note && <p class="mt-0.5 text-[13px] leading-snug text-muted">{r.data.note}</p>}
+    </li>
+  ))}
+  {items.length === 0 && <li class="text-muted text-sm py-3">reading list empty.</li>}
+</ul>

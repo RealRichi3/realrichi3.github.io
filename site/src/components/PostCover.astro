@@ -1,0 +1,38 @@
+---
+// site/src/components/PostCover.astro
+// Renders a small image preview for a blog post. If `src` is provided,
+// renders an <img>. Otherwise renders a deterministic colored placeholder
+// derived from the post slug so each post is visually distinct.
+interface Props {
+  src?: string;
+  alt?: string;
+  slug: string;
+  size?: number;
+}
+const { src, alt = '', slug, size = 96 } = Astro.props;
+
+function hueFromSlug(s: string) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h % 360;
+}
+const hue = hueFromSlug(slug);
+---
+{src ? (
+  <img
+    src={src}
+    alt={alt}
+    width={size}
+    height={size}
+    loading="lazy"
+    decoding="async"
+    style={`width:${size}px;height:${size}px;`}
+    class="object-cover rounded-md border border-divider shrink-0"
+  />
+) : (
+  <div
+    aria-hidden="true"
+    style={`width:${size}px;height:${size}px;background:linear-gradient(135deg,hsl(${hue} 60% 78%) 0%, hsl(${(hue + 40) % 360} 65% 60%) 100%);`}
+    class="rounded-md border border-divider shrink-0"
+  ></div>
+)}

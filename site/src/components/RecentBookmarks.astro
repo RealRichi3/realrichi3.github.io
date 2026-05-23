@@ -1,0 +1,38 @@
+---
+// site/src/components/RecentBookmarks.astro
+import { getReading } from '../lib/reading';
+import Description from './Description.astro';
+import TagList from './TagList.astro';
+import { HOMEPAGE_LIMITS } from '../lib/site-config';
+import { formatDate, hostFromUrl } from '../lib/format';
+
+const all = getReading()
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const recent = all.slice(0, HOMEPAGE_LIMITS.bookmarks);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<section class="posts h-full pl-4 border-l-2 border-accent">
+  <h2 class="text-[1.05rem] font-semibold mb-5">Recent Bookmarks</h2>
+  <ul class="post-list space-y-5">
+    {recent.map((r) => (
+      <li>
+        <div class="text-[11px] font-mono text-muted opacity-60 tracking-wide flex flex-wrap items-baseline gap-x-2">
+          <span>{formatDate(r.data.date)}</span>
+          <span>·</span>
+          <span>{r.data.source ?? hostFromUrl(r.data.url)}</span>
+        </div>
+        <p class="mt-1 text-[15px]">
+          <a class="text-accent hover:underline" href={r.data.url} rel="noopener" target="_blank">{r.data.title} ↗</a>
+        </p>
+        <Description text={r.data.note} />
+        <TagList tags={r.data.tags} basePath="/reading?tags=" />
+      </li>
+    ))}
+    {recent.length === 0 && <li class="text-muted text-sm">no bookmarks yet.</li>}
+  </ul>
+  {all.length > 0 && (
+    <p class="see-more mt-5 text-[13px]">
+      <a class="text-accent" href={`${base}/reading`}>See all {all.length} bookmarks →</a>
+    </p>
+  )}
+</section>

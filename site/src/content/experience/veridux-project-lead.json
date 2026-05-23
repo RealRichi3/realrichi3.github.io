@@ -1,0 +1,12 @@
+{
+  "role": "Project Lead / Backend Developer",
+  "company": "Veridux Pay",
+  "start": "2023-07-01",
+  "end": "2024-08-31",
+  "location": "Remote",
+  "bullets": [
+    "Led backend for a fintech product; Node.js + TypeScript on GCP.",
+    "Real-time updates via Apache Kafka and React Native client.",
+    "Approximate dates — verify."
+  ]
+}

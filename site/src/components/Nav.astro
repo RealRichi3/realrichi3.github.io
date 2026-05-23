@@ -1,0 +1,76 @@
+---
+// site/src/components/Nav.astro — header: big logo + uppercase nav + ⌘K + theme toggle
+import { NAV_ITEMS } from '../lib/nav-items';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const here = Astro.url.pathname.replace(/\/$/, '') || '/';
+const items = NAV_ITEMS;
+---
+<header class="border-b border-divider bg-bg">
+  <div class="max-w-content mx-auto px-6 pt-8 pb-4 flex items-start justify-between gap-4">
+    <a href={`${base}/`} class="font-bold text-2xl tracking-tight no-underline hover:no-underline">
+      richiemoluno<span class="text-accent">.</span>
+    </a>
+    <div class="flex items-center gap-3 pt-2">
+      <button
+        type="button"
+        id="cmdk-open"
+        class="hidden sm:inline-flex items-center justify-center h-8 px-2 border border-divider rounded text-[11px] text-muted hover:text-text hover:border-text transition-colors"
+        aria-label="Open command palette"
+      >
+        <kbd class="font-mono leading-none">⌘K</kbd>
+      </button>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="inline-flex items-center justify-center h-8 w-8 text-muted hover:text-accent transition-colors"
+        aria-label="Toggle theme"
+      >
+        <svg class="theme-light" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2"/><path d="M12 20v2"/>
+          <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+          <path d="M2 12h2"/><path d="M20 12h2"/>
+          <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+        </svg>
+        <svg class="theme-dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <nav class="max-w-content mx-auto px-6 pb-4">
+    <ul class="flex flex-wrap gap-x-6 gap-y-1 text-[12px] uppercase tracking-[0.18em]">
+      {items.map(({ label, href }) => {
+        const full = href === '/' ? `${base}/` : `${base}${href}`;
+        const norm = full.replace(/\/$/, '') || '/';
+        const active = href === '/'
+          ? here === (base.replace(/\/$/, '') || '/')
+          : (here === norm || here.startsWith(norm + '/'));
+        return (
+          <li>
+            <a
+              href={full}
+              class:list={['hover:text-accent transition-colors', active ? 'text-accent' : 'text-text']}
+            >{label}</a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+</header>
+<style is:global>
+  /* Show the icon for the mode you can switch TO:
+     light mode → moon (click to go dark); dark mode → sun. */
+  .theme-light { display: none; }
+  html.dark .theme-light { display: inline; }
+  html.dark .theme-dark { display: none; }
+</style>
+<script is:inline>
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+    if (t && t.closest && t.closest('#theme-toggle')) {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+  });
+</script>

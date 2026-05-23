@@ -1,0 +1,11 @@
+{
+  "role": "Software Engineer",
+  "company": "Accuvend",
+  "start": "2023-11-01",
+  "location": "Remote",
+  "bullets": [
+    "Backend services for a payments platform using TypeScript, Node.js, PostgreSQL.",
+    "Designed event-driven flows over Apache Kafka for partner integrations.",
+    "Containerised deployments via Docker, GitHub Actions CI/CD."
+  ]
+}

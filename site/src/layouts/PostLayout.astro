@@ -1,0 +1,104 @@
+---
+// site/src/layouts/PostLayout.astro — single blog post layout with collapsed TOC in header
+import BaseLayout from './BaseLayout.astro';
+import TagList from '../components/TagList.astro';
+import { readingTime } from '../lib/reading-time';
+
+interface Heading { depth: number; slug: string; text: string; }
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  updated?: Date;
+  tags: string[];
+  body: string;
+  headings?: Heading[];
+  prev?: { slug: string; title: string } | null;
+  next?: { slug: string; title: string } | null;
+}
+const { title, description, date, updated, tags, body, headings = [], prev, next } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const rt = readingTime(body);
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+
+function fmt(d: Date) {
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+<BaseLayout title={`${title} — Richie Moluno`} description={description}>
+  <div class="max-w-content mx-auto px-6 pb-4 min-h-[calc(100vh-8rem)] flex flex-col">
+    <article class="prose-richie flex flex-col flex-1">
+      <p class="mt-12 text-[12px] font-mono text-muted tracking-wide">
+        <a class="hover:text-accent" href={`${base}/blog`}>← blog</a>
+      </p>
+
+      <header class="mt-6">
+        <div class="text-[12px] font-mono text-muted tracking-wide">
+          <span>{fmt(date)}</span>
+          <span class="mx-1.5">·</span>
+          <span>Essay</span>
+          <span class="mx-1.5">·</span>
+          <span>{rt.minutes} Min Read</span>
+          <span class="mx-1.5">·</span>
+          <span>{rt.words} words</span>
+          {updated && (
+            <>
+              <span class="mx-1.5">·</span>
+              <span>updated {fmt(updated)}</span>
+            </>
+          )}
+        </div>
+        <h1
+          class="font-semibold text-2xl sm:text-3xl tracking-tight mt-2"
+          style="color: color-mix(in srgb, var(--color-text) 82%, var(--color-bg));"
+        >{title}</h1>
+        <blockquote class="intro-quote mt-4">
+          {description}
+        </blockquote>
+        <TagList tags={tags} basePath="/blog?tags=" />
+        {toc.length > 0 && (
+          <details class="mt-4 bg-surface-soft rounded-lg px-4 py-3 text-[12px] font-mono text-muted tracking-wide">
+            <summary class="cursor-pointer hover:text-accent select-none uppercase tracking-[0.18em] text-[10px]">Table of contents</summary>
+            <ul class="mt-3 leading-snug">
+              {toc.map((h) => (
+                <li class:list={[h.depth === 2 ? 'mt-2 first:mt-0' : 'mt-1 pl-5 relative']}>
+                  {h.depth === 3 && <span class="absolute left-1 top-0 opacity-50">–</span>}
+                  <a class="hover:text-accent transition-colors normal-case" href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+      </header>
+
+      <div class="mt-10 text-[15px] leading-[1.75]">
+        <slot />
+      </div>
+
+      {(prev || next) && (
+        <nav class="mt-auto pt-6 border-t border-divider flex justify-between text-[12px] font-mono text-muted tracking-wide clear-both">
+          {prev ? <a class="hover:text-accent max-w-[45%]" href={`${base}/blog/${prev.slug}`}>← {prev.title}</a> : <span />}
+          {next ? <a class="hover:text-accent max-w-[45%] text-right" href={`${base}/blog/${next.slug}`}>{next.title} →</a> : <span />}
+        </nav>
+      )}
+    </article>
+  </div>
+</BaseLayout>
+<style is:global>
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  .prose-richie h2,
+  .prose-richie h3 { color: color-mix(in srgb, var(--color-text) 80%, var(--color-bg)); font-weight: 600; }
+  .prose-richie h2 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: 0.5rem; }
+  .prose-richie h3 { font-size: 1.05rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+  .prose-richie p { margin: 1rem 0; }
+  .prose-richie a { color: var(--color-accent); }
+  .prose-richie a:hover { text-decoration: underline; }
+  .prose-richie strong { color: var(--color-text); }
+  .prose-richie code { font-family: theme('fontFamily.mono'); background: var(--color-divider); padding: 0 0.3em; border-radius: 3px; font-size: 0.9em; }
+  .prose-richie pre { background: var(--color-surface-soft); border: 1px solid var(--color-divider); padding: 0.9rem 1.1rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; }
+  .prose-richie pre code { background: transparent; padding: 0; }
+  .prose-richie blockquote { border-left: 2px solid var(--color-divider); padding: 0.25rem 0 0.25rem 1rem; color: var(--color-muted); font-style: italic; margin: 1.25rem 0; }
+  .prose-richie ul, .prose-richie ol { padding-left: 1.4rem; margin: 0.75rem 0; }
+  .prose-richie li { margin: 0.35rem 0; }
+  .prose-richie hr { border: 0; border-top: 1px solid var(--color-divider); margin: 2rem 0; }
+</style>

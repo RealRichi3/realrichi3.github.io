@@ -1,0 +1,33 @@
+---
+// site/src/components/HeroBlock.astro
+import Icon from './Icon.astro';
+
+const links = [
+  { name: 'github',   href: 'https://github.com/realrichi3',           label: 'GitHub' },
+  { name: 'x',        href: 'https://twitter.com/MolunoRichie',        label: 'X' },
+  { name: 'linkedin', href: 'https://www.linkedin.com/in/realrichi3',  label: 'LinkedIn' },
+  { name: 'mail',     href: 'mailto:richiemoluno@gmail.com',           label: 'Email' },
+] as const;
+---
+<section class="intro mt-12">
+  <blockquote class="intro-quote">
+    Hi, this is Richie. I'm a software engineer with a soft spot for robotics.
+    On the long run, slowly inventing the universe one abstraction at a time,
+    and this is where I keep the notes — writing, projects, bookmarks.
+  </blockquote>
+  <ul class="mt-8 flex flex-row gap-6 text-muted">
+    {links.map((l) => (
+      <li>
+        <a
+          class="inline-block hover:text-accent transition-colors"
+          href={l.href}
+          aria-label={l.label}
+          title={l.label}
+          {...(l.href.startsWith('http') ? { rel: 'noopener', target: '_blank' } : {})}
+        >
+          <Icon name={l.name} size={18} />
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>

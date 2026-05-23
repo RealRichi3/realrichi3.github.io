@@ -1,0 +1,28 @@
+---
+// site/src/components/Footer.astro
+import Icon from './Icon.astro';
+const year = new Date().getFullYear();
+const links = [
+  { name: 'github',   href: 'https://github.com/realrichi3',           label: 'GitHub' },
+  { name: 'x',        href: 'https://twitter.com/MolunoRichie',        label: 'X' },
+  { name: 'mail',     href: 'mailto:richiemoluno@gmail.com',           label: 'Email' },
+] as const;
+---
+<footer class="border-t border-divider mt-6">
+  <div class="max-w-content mx-auto px-6 py-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted">
+    <div class="flex items-center gap-3">
+      {links.map((l) => (
+        <a
+          class="inline-flex items-center hover:text-accent"
+          href={l.href}
+          aria-label={l.label}
+          title={l.label}
+          {...(l.href.startsWith('http') ? { rel: 'noopener', target: '_blank' } : {})}
+        >
+          <Icon name={l.name} size={14} />
+        </a>
+      ))}
+    </div>
+    <span class="ml-auto">© {year} Richie Moluno</span>
+  </div>
+</footer>

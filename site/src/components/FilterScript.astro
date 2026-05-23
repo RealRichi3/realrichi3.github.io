@@ -1,0 +1,105 @@
+---
+// site/src/components/FilterScript.astro
+// Reusable inline-script filter for any list page. Looks for:
+//   - .filter-item elements with data-tags="tag1|tag2|..."
+//   - .tag-toggle buttons with data-tag="<tag>"
+//   - #filter-mode button that toggles between "all" and "any"
+//   - #filter-empty element to show when no entries match
+// Persists state in URL search params (?tags=a,b&mode=any).
+---
+<script is:inline>
+  (function () {
+    var activeTags = new Set();
+    var matchMode = 'all';
+
+    function readUrl() {
+      var p = new URLSearchParams(window.location.search);
+      var raw = p.get('tags');
+      if (raw) raw.split(',').map(function (s) { return s.trim(); }).filter(Boolean).forEach(function (t) { activeTags.add(t); });
+      var m = p.get('mode');
+      if (m === 'any' || m === 'all') matchMode = m;
+    }
+    function writeUrl() {
+      var url = new URL(window.location.href);
+      if (activeTags.size === 0) url.searchParams.delete('tags');
+      else url.searchParams.set('tags', Array.from(activeTags).join(','));
+      if (matchMode === 'any') url.searchParams.set('mode', 'any'); else url.searchParams.delete('mode');
+      window.history.replaceState({}, '', url.toString());
+    }
+    function refreshChips() {
+      document.querySelectorAll('.tag-toggle').forEach(function (el) {
+        var t = el.getAttribute('data-tag');
+        if (!t) return;
+        var on = activeTags.has(t);
+        el.classList.toggle('text-accent', on);
+        el.classList.toggle('font-bold', on);
+      });
+    }
+    function refreshModeBtn() {
+      var btn = document.getElementById('filter-mode');
+      if (btn) {
+        btn.textContent = matchMode;
+        btn.setAttribute('aria-label', 'match mode: ' + matchMode);
+      }
+    }
+    function applyFilter() {
+      var anyActive = activeTags.size > 0;
+      var visibleCount = 0;
+      document.querySelectorAll('.filter-item').forEach(function (el) {
+        var show;
+        if (!anyActive) {
+          show = true;
+        } else {
+          var tags = (el.getAttribute('data-tags') || '').split('|').filter(Boolean);
+          if (matchMode === 'any') {
+            show = false;
+            activeTags.forEach(function (t) { if (tags.indexOf(t) !== -1) show = true; });
+          } else {
+            show = true;
+            activeTags.forEach(function (t) { if (tags.indexOf(t) === -1) show = false; });
+          }
+        }
+        el.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
+      });
+
+      var empty = document.getElementById('filter-empty');
+      if (empty) {
+        var showEmpty = anyActive && visibleCount === 0;
+        empty.classList.toggle('hidden', !showEmpty);
+      }
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+
+      var tg = t.closest('.tag-toggle');
+      if (tg) {
+        e.preventDefault();
+        var tag = tg.getAttribute('data-tag');
+        if (!tag) return;
+        if (activeTags.has(tag)) activeTags.delete(tag); else activeTags.add(tag);
+        writeUrl();
+        refreshChips();
+        applyFilter();
+        return;
+      }
+
+      var mode = t.closest('#filter-mode');
+      if (mode) {
+        e.preventDefault();
+        matchMode = matchMode === 'all' ? 'any' : 'all';
+        writeUrl();
+        refreshModeBtn();
+        applyFilter();
+        return;
+      }
+    });
+
+    readUrl();
+    refreshChips();
+    refreshModeBtn();
+    applyFilter();
+  })();
+</script>

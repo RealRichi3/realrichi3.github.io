@@ -1,0 +1,11 @@
+{
+  "role": "Lead Software Engineer",
+  "company": "Swiftvia",
+  "start": "2023-07-01",
+  "location": "Remote",
+  "bullets": [
+    "Owned the API surface used by partner integrations.",
+    "Authored technical documentation for the distributed system; shortened client integration time.",
+    "TypeScript, WebSockets, MongoDB, Redis."
+  ]
+}

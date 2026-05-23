@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBlock from '../components/HeroBlock.astro';
+import RecentWritings from '../components/RecentWritings.astro';
+import RecentBookmarks from '../components/RecentBookmarks.astro';
+import RecentProjects from '../components/RecentProjects.astro';
+import RecentNow from '../components/RecentNow.astro';
+---
+<BaseLayout
+  title="Richie Moluno"
+  description="Personal site of Richie Moluno — writings, bookmarks, projects."
+>
+  <main class="max-w-content mx-auto px-6 pb-24">
+    <HeroBlock />
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+      <RecentWritings />
+      <RecentProjects />
+      <RecentBookmarks />
+      <RecentNow />
+    </div>
+  </main>
+</BaseLayout>

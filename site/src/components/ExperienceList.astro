@@ -1,0 +1,30 @@
+---
+// site/src/components/ExperienceList.astro — stacked list with bullets.
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('experience');
+const rows = all.sort((a, b) => b.data.start.getTime() - a.data.start.getTime());
+
+function fmt(d: Date) { return d.toLocaleDateString('en-GB', { year: 'numeric', month: 'short' }); }
+---
+<ol class="space-y-6 text-sm">
+  {rows.map(({ data }) => {
+    const range = data.end ? `${fmt(data.start)} — ${fmt(data.end)}` : `${fmt(data.start)} — now`;
+    return (
+      <li>
+        <p class="text-xs uppercase tracking-[0.14em] text-muted tabular-nums">{range}</p>
+        <p class="mt-0.5">
+          <span>{data.role}</span>
+          <span class="text-muted"> · </span>
+          <span class="font-semibold">{data.company}</span>
+          {data.location && <span class="text-muted"> · {data.location}</span>}
+        </p>
+        {data.bullets.length > 0 && (
+          <ul class="mt-2 list-disc ml-5 text-muted leading-relaxed">
+            {data.bullets.map((b) => <li>{b}</li>)}
+          </ul>
+        )}
+      </li>
+    );
+  })}
+</ol>

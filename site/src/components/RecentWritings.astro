@@ -1,0 +1,52 @@
+---
+// site/src/components/RecentWritings.astro
+import { getCollection } from 'astro:content';
+import { readingTime } from '../lib/reading-time';
+import TagList from './TagList.astro';
+import { HOMEPAGE_LIMITS, RECENT_DESCRIPTION_MAX } from '../lib/site-config';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const all = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const recent = all.slice(0, HOMEPAGE_LIMITS.writings);
+
+function fmt(d: Date) {
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+function truncate(s: string | undefined, n: number) {
+  if (!s) return '';
+  if (s.length <= n) return s;
+  return s.slice(0, n).trimEnd().replace(/[,;:.]$/, '') + '…';
+}
+---
+<section class="posts bg-surface rounded-lg p-6 h-full shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)]">
+  <h2 class="text-[1.05rem] font-semibold mb-5">Recent Writings</h2>
+  <ul class="post-list space-y-6">
+    {recent.map((p) => {
+      const rt = readingTime(p.body);
+      const desc = truncate(p.data.description, RECENT_DESCRIPTION_MAX);
+      return (
+        <li>
+          <div class="text-[11px] font-mono text-muted opacity-60 tracking-wide">
+            <span>{fmt(p.data.date)}</span>
+            <span class="mx-1.5">·</span>
+            <span>Essay</span>
+            <span class="mx-1.5">·</span>
+            <span>{rt.minutes} Min Read</span>
+          </div>
+          <p class="mt-0.5 text-[14px]">
+            <a class="text-accent hover:underline" href={`${base}/blog/${p.slug}`}>{p.data.title}</a>
+          </p>
+          {desc && <p class="mt-0.5 text-[13px] leading-snug text-muted">{desc}</p>}
+          <TagList tags={p.data.tags} basePath="/blog?tags=" />
+        </li>
+      );
+    })}
+    {recent.length === 0 && <li class="text-muted text-sm">no writings yet.</li>}
+  </ul>
+  {all.length > 0 && (
+    <p class="see-more mt-5 text-[13px]">
+      <a class="text-accent" href={`${base}/blog`}>See all {all.length} writings →</a>
+    </p>
+  )}
+</section>

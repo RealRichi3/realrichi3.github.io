@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NumberedSection from '../../components/NumberedSection.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const items = await getCollection('projects');
+  return items
+    .filter((p) => p.body && p.body.trim().length > 0)
+    .map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const { Content } = await p.render();
+---
+<BaseLayout title={`${p.data.name} — Richie Moluno`} description={p.data.oneLiner}>
+  <main class="max-w-content mx-auto px-6 pb-12 prose-richie">
+    <NumberedSection label={p.data.name}>
+      <p class="text-sm text-muted">{p.data.oneLiner}</p>
+      <p class="text-xs text-muted mt-1">
+        {p.data.year} · {p.data.stack.join(', ')}
+        {p.data.links.repo && <> · <a class="text-accent" href={p.data.links.repo}>repo</a></>}
+        {p.data.links.site && <> · <a class="text-accent" href={p.data.links.site}>site</a></>}
+      </p>
+      <div class="mt-6 leading-relaxed"><Content /></div>
+    </NumberedSection>
+  </main>
+</BaseLayout>

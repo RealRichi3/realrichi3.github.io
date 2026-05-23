@@ -1,0 +1,20 @@
+---
+// site/src/components/NumberedSection.astro
+interface Props {
+  label: string;
+  href?: string;
+  cta?: string;
+}
+const { label, href, cta } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ctaHref = href ? `${base}${href}` : undefined;
+---
+<section class="mt-12">
+  <header class="flex items-baseline gap-3 mb-3">
+    <h2 class="text-xs font-semibold uppercase tracking-[0.18em] text-muted">{label}</h2>
+    {ctaHref && cta && (
+      <a class="ml-auto text-xs text-accent" href={ctaHref}>{cta} →</a>
+    )}
+  </header>
+  <slot />
+</section>
