@@ -218,7 +218,7 @@
       "design",
       "essay"
     ],
-    "note": "Sandi Metz shows why duplication is far cheaper than the wrong abstraction — a corrective for DRY taken too far."
+    "note": "Sandi Metz shows why duplication is far cheaper than the wrong abstraction - a corrective for DRY taken too far."
   },
   {
     "slug": "brooks-no-silver-bullet",
@@ -230,7 +230,7 @@
       "essay",
       "engineering"
     ],
-    "note": "Brooks argues that no single technique will ever yield an order-of-magnitude improvement in productivity — essential complexity is irreducible."
+    "note": "Brooks argues that no single technique will ever yield an order-of-magnitude improvement in productivity - essential complexity is irreducible."
   },
   {
     "slug": "dijkstra-structured-programming",
@@ -242,7 +242,7 @@
       "essay",
       "design"
     ],
-    "note": "Dijkstra's case for reasoning about programs as mathematical objects — the seed of everything we now call software craftsmanship."
+    "note": "Dijkstra's case for reasoning about programs as mathematical objects - the seed of everything we now call software craftsmanship."
   },
   {
     "slug": "yt-03NGtWj0q1k",

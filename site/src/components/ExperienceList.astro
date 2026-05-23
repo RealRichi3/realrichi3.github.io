@@ -1,5 +1,5 @@
 ---
-// site/src/components/ExperienceList.astro — stacked list with bullets.
+// site/src/components/ExperienceList.astro - stacked list with bullets.
 import { getCollection } from 'astro:content';
 
 const all = await getCollection('experience');
@@ -9,7 +9,7 @@ function fmt(d: Date) { return d.toLocaleDateString('en-GB', { year: 'numeric', 
 ---
 <ol class="space-y-6 text-sm">
   {rows.map(({ data }) => {
-    const range = data.end ? `${fmt(data.start)} — ${fmt(data.end)}` : `${fmt(data.start)} — now`;
+    const range = data.end ? `${fmt(data.start)} - ${fmt(data.end)}` : `${fmt(data.start)} - now`;
     return (
       <li>
         <p class="text-xs uppercase tracking-[0.14em] text-muted tabular-nums">{range}</p>

@@ -7,6 +7,6 @@
   "bullets": [
     "Led backend for a fintech product; Node.js + TypeScript on GCP.",
     "Real-time updates via Apache Kafka and React Native client.",
-    "Approximate dates — verify."
+    "Approximate dates - verify."
   ]
 }

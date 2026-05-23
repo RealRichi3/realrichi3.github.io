@@ -1,4 +1,4 @@
-// site/src/lib/format.ts — small shared formatters used by list components.
+// site/src/lib/format.ts - small shared formatters used by list components.
 
 export function formatDate(d: Date): string {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });

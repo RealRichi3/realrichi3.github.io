@@ -2,7 +2,7 @@
 
 ## North star
 
-A personal commonplace book in the lineage of [lilianweng.github.io](https://lilianweng.github.io) and Hugo PaperMod sites — identity-first homepage, blog with TOC + tag filter, bookmarks, projects.
+A personal commonplace book in the lineage of [lilianweng.github.io](https://lilianweng.github.io) and Hugo PaperMod sites - identity-first homepage, blog with TOC + tag filter, bookmarks, projects.
 
 ## Stack
 
@@ -42,6 +42,6 @@ Per-tag click anywhere navigates to the section's index page with the tag pre-ap
 
 - Date + Essay + reading time + word count in monospace meta
 - Soft-colored title
-- Intro blockquote (description) — sets the tone
-- Collapsed TOC (`<details>`) in the header — h2/h3 only
+- Intro blockquote (description) - sets the tone
+- Collapsed TOC (`<details>`) in the header - h2/h3 only
 - Bottom prev/next pinned via `mt-auto`

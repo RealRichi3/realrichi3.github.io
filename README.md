@@ -1,6 +1,6 @@
 # realrichi3.github.io
 
-Personal site of Richie Moluno — writings, projects, bookmarks.
+Personal site of Richie Moluno - writings, projects, bookmarks.
 
 Built with [Astro](https://astro.build) + Tailwind. Source lives under `site/`.
 
@@ -18,10 +18,10 @@ npm run e2e          # playwright smoke
 
 ## Layout
 
-- `site/` — Astro source
-  - `src/content/blog/` — MDX posts
-  - `src/content/projects/` — project entries
-  - `src/content/experience/` — experience data
-  - `src/data/reading.json` — bookmarks
-- `scripts/` — authoring + import helpers
-- `docs/` — specs, plan, notes
+- `site/` - Astro source
+  - `src/content/blog/` - MDX posts
+  - `src/content/projects/` - project entries
+  - `src/content/experience/` - experience data
+  - `src/data/reading.json` - bookmarks
+- `scripts/` - authoring + import helpers
+- `docs/` - specs, plan, notes

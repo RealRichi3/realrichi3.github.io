@@ -9,7 +9,7 @@ interface Props {
   title: string;
   description?: string;
 }
-const { title, description = 'Richie Moluno — software engineer with a soft spot for robotics.' } = Astro.props;
+const { title, description = 'Richie Moluno - software engineer with a soft spot for robotics.' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 <!doctype html>

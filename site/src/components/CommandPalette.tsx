@@ -96,7 +96,7 @@ export default function CommandPalette({ base, indexUrl }: Props) {
             >
               <span className="text-muted text-xs uppercase mr-2 tracking-widest">{it.kind}</span>
               {it.title}
-              {it.subtitle && <span className="text-muted"> — {it.subtitle}</span>}
+              {it.subtitle && <span className="text-muted"> - {it.subtitle}</span>}
             </li>
           ))}
         </ul>

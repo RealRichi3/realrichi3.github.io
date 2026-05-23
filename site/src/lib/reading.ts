@@ -1,6 +1,6 @@
 // site/src/lib/reading.ts
 // Loads reading entries from a single JSON file and returns them in a shape
-// that mirrors Astro getCollection() — { slug, data } — so call-sites do not
+// that mirrors Astro getCollection() - { slug, data } - so call-sites do not
 // need to change beyond the import source.
 import raw from '../data/reading.json';
 

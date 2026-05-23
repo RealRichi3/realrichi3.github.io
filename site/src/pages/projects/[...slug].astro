@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { p } = Astro.props;
 const { Content } = await p.render();
 ---
-<BaseLayout title={`${p.data.name} — Richie Moluno`} description={p.data.oneLiner}>
+<BaseLayout title={`${p.data.name} - Richie Moluno`} description={p.data.oneLiner}>
   <main class="max-w-content mx-auto px-6 pb-12 prose-richie">
     <NumberedSection label={p.data.name}>
       <p class="text-sm text-muted">{p.data.oneLiner}</p>
