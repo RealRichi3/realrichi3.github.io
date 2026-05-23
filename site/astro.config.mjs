@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 
 // During /v2/ staging the new site lives under /v2/. Flip to '/' at cutover.
 const STAGING = process.env.CUTOVER !== '1';
@@ -27,6 +26,5 @@ export default defineConfig({
     mdx(),
     tailwind({ applyBaseStyles: false }),
     react(),
-    ...(STAGING ? [] : [sitemap()]),
   ],
 });
