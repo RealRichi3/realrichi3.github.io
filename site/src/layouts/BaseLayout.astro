@@ -8,9 +8,23 @@ import CommandPalette from '../components/CommandPalette';
 interface Props {
   title: string;
   description?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  ogImage?: string;
+  publishedTime?: Date;
+  tags?: string[];
 }
-const { title, description = 'Richie Moluno - software engineer with a soft spot for robotics.' } = Astro.props;
+const {
+  title,
+  description = 'Richie Moluno - software engineer with a soft spot for robotics. Writings, projects, bookmarks.',
+  ogType = 'website',
+  ogImage,
+  publishedTime,
+  tags = [],
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const siteName = 'Richie Moluno';
+const fallbackImage = new URL('/og-default.svg', Astro.site).toString();
+const imageUrl = ogImage ? new URL(ogImage, Astro.site).toString() : fallbackImage;
 ---
 <!doctype html>
 <html lang="en">
@@ -23,6 +37,29 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <meta name="theme-color" content="#1c1c20" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content="en_GB" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+    {tags.map((t) => <meta property="article:tag" content={t} />)}
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@MolunoRichie" />
+    <meta name="twitter:creator" content="@MolunoRichie" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="Richie Moluno blog" href={`${import.meta.env.BASE_URL}rss.xml`} />
+    <link rel="alternate" type="application/feed+json" title="Richie Moluno blog (JSON Feed)" href={`${import.meta.env.BASE_URL}feed.json`} />
     <!-- Theme detection: run inline before paint to avoid flash of wrong theme -->
     <script is:inline>
       (function () {

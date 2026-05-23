@@ -26,7 +26,13 @@ function fmt(d: Date) {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 ---
-<BaseLayout title={`${title} - Richie Moluno`} description={description}>
+<BaseLayout
+  title={`${title} - Richie Moluno`}
+  description={description}
+  ogType="article"
+  publishedTime={date}
+  tags={tags}
+>
   <div class="max-w-content mx-auto px-6 pb-4 min-h-[calc(100vh-8rem)] flex flex-col">
     <article class="prose-richie flex flex-col flex-1">
       <p class="mt-12 text-[13px] font-mono text-muted tracking-wide">

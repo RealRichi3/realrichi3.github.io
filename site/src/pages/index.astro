@@ -5,11 +5,33 @@ import RecentWritings from '../components/RecentWritings.astro';
 import RecentBookmarks from '../components/RecentBookmarks.astro';
 import RecentProjects from '../components/RecentProjects.astro';
 import RecentNow from '../components/RecentNow.astro';
+
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Richie Moluno',
+  url: Astro.site?.toString().replace(/\/$/, '') ?? 'https://richiemoluno.com',
+  email: 'mailto:richiemoluno@gmail.com',
+  jobTitle: 'Software Engineer',
+  sameAs: [
+    'https://github.com/realrichi3',
+    'https://twitter.com/MolunoRichie',
+    'https://www.linkedin.com/in/richie-moluno/',
+  ],
+};
+const siteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Richie Moluno',
+  url: Astro.site?.toString().replace(/\/$/, '') ?? 'https://richiemoluno.com',
+};
 ---
 <BaseLayout
-  title="Richie Moluno"
-  description="Personal site of Richie Moluno - writings, bookmarks, projects."
+  title="Richie Moluno - software engineer with a soft spot for robotics"
+  description="Personal site of Richie Moluno - writings, projects, bookmarks. Software engineer, robotics, distributed systems."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(siteLd)} />
   <main class="max-w-content mx-auto px-6 pb-24">
     <HeroBlock />
     <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
