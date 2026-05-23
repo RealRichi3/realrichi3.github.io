@@ -8,7 +8,7 @@ import react from '@astrojs/react';
 const STAGING = process.env.CUTOVER !== '1';
 
 export default defineConfig({
-  site: 'https://realrichi3.github.io',
+  site: 'https://richiemoluno.com',
   base: STAGING ? '/v2/' : '/',
   outDir: STAGING ? '../v2' : './dist',
   trailingSlash: 'ignore',
