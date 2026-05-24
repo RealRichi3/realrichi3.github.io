@@ -2,7 +2,7 @@
 # Personal Website Brainstorm — Running Notes
 
 Date started: 2026-05-23
-User: Richie Moluno (richy5592@gmail.com)
+User: Richie Moluno
 
 ## Context
 
@@ -37,7 +37,7 @@ Common thread: text-forward, content-first, blog-heavy, minimalist palette, dev-
 - Role: software engineer, mechanical-engineering grad
 - Tone today: "iterative, hypothesis-driven", "collaborative", "innovative" (template boilerplate — may want to rewrite)
 - Twitter: @MolunoRichie
-- Email: molunorichie@gmail.com (note: current README/portfolio uses richy5592@gmail.com too)
+- Email: <redacted>
 - Existing content: resume, portfolio (8+ projects: jsquarto, accuvend, etc.), opensource section, talks section
 
 ### Q3 — primary audience (weighted)
