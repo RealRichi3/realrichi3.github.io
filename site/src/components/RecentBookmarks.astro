@@ -16,12 +16,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <ul class="post-list space-y-5">
     {recent.map((r) => (
       <li>
-        <div class="text-[12px] font-mono text-muted opacity-60 tracking-wide flex flex-wrap items-baseline gap-x-2">
+        <div class="text-[14px] font-mono text-muted opacity-60 tracking-wide flex flex-wrap items-baseline gap-x-2">
           <span>{formatDate(r.data.date)}</span>
           <span>·</span>
           <span>{r.data.source ?? hostFromUrl(r.data.url)}</span>
         </div>
-        <p class="mt-1 text-[16px]">
+        <p class="mt-1 text-[18px]">
           <a class="text-accent hover:underline" href={r.data.url} rel="noopener" target="_blank">{r.data.title} ↗</a>
         </p>
         <Description text={r.data.note} />
@@ -31,7 +31,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     {recent.length === 0 && <li class="text-muted text-sm">no bookmarks yet.</li>}
   </ul>
   {all.length > 0 && (
-    <p class="see-more mt-5 text-[14px]">
+    <p class="see-more mt-5 text-[16px]">
       <a class="text-accent" href={`${base}/reading`}>See all {all.length} bookmarks →</a>
     </p>
   )}

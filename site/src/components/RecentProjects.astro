@@ -23,11 +23,11 @@ const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
       const external = !!(!detail && (p.data.links.site || p.data.links.repo));
       return (
         <li>
-          <div class="text-[12px] font-mono text-muted opacity-60 tracking-wide">
+          <div class="text-[14px] font-mono text-muted opacity-60 tracking-wide">
             <span>{p.data.year}</span>
           </div>
           <div class="mt-1 flex items-baseline gap-2 flex-wrap">
-            <p class="text-[16px]">
+            <p class="text-[18px]">
               <a class="text-accent hover:underline" href={href} {...(external ? { rel: 'noopener', target: '_blank' } : {})}>
                 {p.data.name}{external && ' ↗'}
               </a>
@@ -39,7 +39,7 @@ const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
                 </a>
               )}
               {p.data.links.site && (
-                <a class="text-[12px] font-mono hover:text-accent" href={p.data.links.site} rel="noopener" target="_blank">site ↗</a>
+                <a class="text-[14px] font-mono hover:text-accent" href={p.data.links.site} rel="noopener" target="_blank">site ↗</a>
               )}
             </span>
           </div>
@@ -51,7 +51,7 @@ const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
     {recent.length === 0 && <li class="text-muted text-sm">no projects yet.</li>}
   </ul>
   {all.length > 0 && (
-    <p class="see-more mt-5 text-[14px]">
+    <p class="see-more mt-5 text-[16px]">
       <a class="text-accent" href={`${base}/projects`}>See all {all.length} projects →</a>
     </p>
   )}

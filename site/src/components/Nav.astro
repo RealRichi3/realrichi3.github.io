@@ -14,7 +14,7 @@ const items = NAV_ITEMS;
       <button
         type="button"
         id="cmdk-open"
-        class="hidden sm:inline-flex items-center justify-center h-8 px-2 border border-divider rounded text-[12px] text-muted hover:text-text hover:border-text transition-colors"
+        class="hidden sm:inline-flex items-center justify-center h-8 px-2 border border-divider rounded text-[14px] text-muted hover:text-text hover:border-text transition-colors"
         aria-label="Open command palette"
       >
         <kbd class="font-mono leading-none">⌘K</kbd>
@@ -39,7 +39,7 @@ const items = NAV_ITEMS;
     </div>
   </div>
   <nav class="max-w-content mx-auto px-6 pb-4">
-    <ul class="flex flex-wrap gap-x-6 gap-y-1 text-[13px] uppercase tracking-[0.18em]">
+    <ul class="flex flex-wrap gap-x-6 gap-y-1 text-[15px] uppercase tracking-[0.18em]">
       {items.map(({ label, href }) => {
         const full = href === '/' ? `${base}/` : `${base}${href}`;
         const norm = full.replace(/\/$/, '') || '/';

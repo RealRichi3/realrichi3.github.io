@@ -27,17 +27,17 @@ function truncate(s: string | undefined, n: number) {
       const desc = truncate(p.data.description, RECENT_DESCRIPTION_MAX);
       return (
         <li>
-          <div class="text-[12px] font-mono text-muted opacity-60 tracking-wide">
+          <div class="text-[14px] font-mono text-muted opacity-60 tracking-wide">
             <span>{fmt(p.data.date)}</span>
             <span class="mx-1.5">·</span>
             <span>Essay</span>
             <span class="mx-1.5">·</span>
             <span>{rt.minutes} Min Read</span>
           </div>
-          <p class="mt-0.5 text-[15px]">
+          <p class="mt-0.5 text-[17px]">
             <a class="text-accent hover:underline" href={`${base}/blog/${p.slug}`}>{p.data.title}</a>
           </p>
-          {desc && <p class="mt-0.5 text-[14px] leading-snug text-muted">{desc}</p>}
+          {desc && <p class="mt-0.5 text-[16px] leading-snug text-muted">{desc}</p>}
           <TagList tags={p.data.tags} basePath="/blog?tags=" />
         </li>
       );
@@ -45,7 +45,7 @@ function truncate(s: string | undefined, n: number) {
     {recent.length === 0 && <li class="text-muted text-sm">no writings yet.</li>}
   </ul>
   {all.length > 0 && (
-    <p class="see-more mt-5 text-[14px]">
+    <p class="see-more mt-5 text-[16px]">
       <a class="text-accent" href={`${base}/blog`}>See all {all.length} writings →</a>
     </p>
   )}

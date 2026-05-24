@@ -32,7 +32,7 @@ export default {
       },
       maxWidth: {
         column: '720px',
-        content: '55rem',
+        content: '62rem',
       },
     },
   },

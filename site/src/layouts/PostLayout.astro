@@ -35,12 +35,12 @@ function fmt(d: Date) {
 >
   <div class="max-w-content mx-auto px-6 pb-4 min-h-[calc(100vh-8rem)] flex flex-col">
     <article class="prose-richie flex flex-col flex-1">
-      <p class="mt-12 text-[13px] font-mono text-muted tracking-wide">
+      <p class="mt-12 text-[15px] font-mono text-muted tracking-wide">
         <a class="hover:text-accent" href={`${base}/blog`}>← blog</a>
       </p>
 
       <header class="mt-6">
-        <div class="text-[13px] font-mono text-muted tracking-wide">
+        <div class="text-[15px] font-mono text-muted tracking-wide">
           <span>{fmt(date)}</span>
           <span class="mx-1.5">·</span>
           <span>Essay</span>
@@ -64,8 +64,8 @@ function fmt(d: Date) {
         </blockquote>
         <TagList tags={tags} basePath="/blog?tags=" />
         {toc.length > 0 && (
-          <details class="mt-4 bg-surface-soft rounded-lg px-4 py-3 text-[13px] font-mono text-muted tracking-wide">
-            <summary class="cursor-pointer hover:text-accent select-none uppercase tracking-[0.18em] text-[11px]">Table of contents</summary>
+          <details class="mt-4 bg-surface-soft rounded-lg px-4 py-3 text-[15px] font-mono text-muted tracking-wide">
+            <summary class="cursor-pointer hover:text-accent select-none uppercase tracking-[0.18em] text-[13px]">Table of contents</summary>
             <ul class="mt-3 leading-snug">
               {toc.map((h) => (
                 <li class:list={[h.depth === 2 ? 'mt-2 first:mt-0' : 'mt-1 pl-5 relative']}>
@@ -78,15 +78,15 @@ function fmt(d: Date) {
         )}
       </header>
 
-      <div class="mt-10 text-[16px] leading-[1.75]">
+      <div class="mt-10 text-[18px] leading-[1.75]">
         {isEmpty ? (
           <aside class="not-prose border border-divider rounded-lg bg-surface-soft px-6 py-8 text-center">
-            <p class="text-[12px] font-mono uppercase tracking-[0.18em] text-muted">Open question</p>
+            <p class="text-[14px] font-mono uppercase tracking-[0.18em] text-muted">Open question</p>
             <p
-              class="mt-3 text-[16px]"
+              class="mt-3 text-[18px]"
               style="color: color-mix(in srgb, var(--color-text) 80%, var(--color-bg));"
             >Still drafting. Sitting with the question before writing the answer.</p>
-            <p class="mt-1 text-[14px] text-muted italic">The writing is the thinking - come back later.</p>
+            <p class="mt-1 text-[16px] text-muted italic">The writing is the thinking - come back later.</p>
           </aside>
         ) : (
           <slot />
@@ -94,7 +94,7 @@ function fmt(d: Date) {
       </div>
 
       {(prev || next) && (
-        <nav class="mt-auto pt-6 border-t border-divider flex justify-between text-[13px] font-mono text-muted tracking-wide clear-both">
+        <nav class="mt-auto pt-6 border-t border-divider flex justify-between text-[15px] font-mono text-muted tracking-wide clear-both">
           {prev ? <a class="hover:text-accent max-w-[45%]" href={`${base}/blog/${prev.slug}`}>← {prev.title}</a> : <span />}
           {next ? <a class="hover:text-accent max-w-[45%] text-right" href={`${base}/blog/${next.slug}`}>{next.title} →</a> : <span />}
         </nav>
@@ -106,14 +106,14 @@ function fmt(d: Date) {
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
   .prose-richie h2,
   .prose-richie h3 { color: color-mix(in srgb, var(--color-text) 80%, var(--color-bg)); font-weight: 600; }
-  .prose-richie h2 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: 0.5rem; }
-  .prose-richie h3 { font-size: 1.05rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+  .prose-richie h2 { font-size: 1.45rem; margin-top: 2rem; margin-bottom: 0.5rem; }
+  .prose-richie h3 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
   .prose-richie p { margin: 1rem 0; }
   .prose-richie a { color: var(--color-accent); }
   .prose-richie a:hover { text-decoration: underline; }
   .prose-richie strong { color: var(--color-text); }
   .prose-richie code { font-family: theme('fontFamily.mono'); background: var(--color-divider); padding: 0 0.3em; border-radius: 3px; font-size: 0.9em; }
-  .prose-richie pre { background: var(--color-surface-soft); border: 1px solid var(--color-divider); padding: 0.9rem 1.1rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; }
+  .prose-richie pre { background: var(--color-surface-soft); border: 1px solid var(--color-divider); padding: 0.9rem 1.1rem; border-radius: 6px; overflow-x: auto; font-size: 0.95rem; }
   .prose-richie pre code { background: transparent; padding: 0; }
   .prose-richie blockquote { border-left: 2px solid var(--color-divider); padding: 0.25rem 0 0.25rem 1rem; color: var(--color-muted); font-style: italic; margin: 1.25rem 0; }
   .prose-richie ul, .prose-richie ol { padding-left: 1.4rem; margin: 0.75rem 0; }
