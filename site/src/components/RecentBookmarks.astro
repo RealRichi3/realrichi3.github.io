@@ -11,7 +11,7 @@ const all = getReading()
 const recent = all.slice(0, HOMEPAGE_LIMITS.bookmarks);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
-<section class="posts h-full pl-4 border-l-2 border-accent">
+<section class="posts h-full">
   <h2 class="text-[1.05rem] font-semibold mb-5">Recent Bookmarks</h2>
   <ul class="post-list space-y-5">
     {recent.map((r) => (
