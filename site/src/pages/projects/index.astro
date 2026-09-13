@@ -9,7 +9,7 @@ import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const items = (await getCollection('projects'))
-  .sort((a, b) => b.data.year - a.data.year);
+  .sort((a, b) => b.data.year - a.data.year || a.data.name.localeCompare(b.data.name));
 
 const stackSet = new Set<string>();
 items.forEach((p) => p.data.stack.forEach((t) => stackSet.add(t)));

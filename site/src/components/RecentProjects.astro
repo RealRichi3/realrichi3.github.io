@@ -8,7 +8,7 @@ import { HOMEPAGE_LIMITS } from '../lib/site-config';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const all = (await getCollection('projects'))
-  .sort((a, b) => b.data.year - a.data.year);
+  .sort((a, b) => b.data.year - a.data.year || a.data.name.localeCompare(b.data.name));
 const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
 ---
 <section class="posts h-full pt-2">
