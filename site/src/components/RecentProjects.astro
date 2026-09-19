@@ -11,8 +11,7 @@ const all = (await getCollection('projects'))
   .sort((a, b) => b.data.year - a.data.year || a.data.name.localeCompare(b.data.name));
 const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
 ---
-<section class="posts h-full pt-2">
-  <div class="border-t-2 border-accent w-12 mb-4"></div>
+<section class="posts bg-surface rounded-lg p-6 h-full shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)]">
   <h2 class="text-[1.05rem] font-semibold mb-5">Recent Projects</h2>
   <ul class="post-list space-y-5">
     {recent.map((p) => {
