@@ -51,7 +51,7 @@ const items = NAV_ITEMS;
           <li>
             <a
               href={full}
-              download={isFile ? true : undefined}
+              download={isFile ? href.split('/').pop() : undefined}
               class:list={['hover:text-accent transition-colors', active ? 'text-accent' : 'text-text']}
             >{label}</a>
           </li>
