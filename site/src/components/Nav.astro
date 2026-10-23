@@ -41,15 +41,17 @@ const items = NAV_ITEMS;
   <nav class="max-w-content mx-auto px-6 pb-4">
     <ul class="flex flex-wrap gap-x-6 gap-y-1 text-[15px] uppercase tracking-[0.18em]">
       {items.map(({ label, href }) => {
+        const isFile = /\.[a-z0-9]+$/i.test(href);
         const full = href === '/' ? `${base}/` : `${base}${href}`;
         const norm = full.replace(/\/$/, '') || '/';
-        const active = href === '/'
+        const active = !isFile && (href === '/'
           ? here === (base.replace(/\/$/, '') || '/')
-          : (here === norm || here.startsWith(norm + '/'));
+          : (here === norm || here.startsWith(norm + '/')));
         return (
           <li>
             <a
               href={full}
+              download={isFile ? true : undefined}
               class:list={['hover:text-accent transition-colors', active ? 'text-accent' : 'text-text']}
             >{label}</a>
           </li>
