@@ -1,0 +1,24 @@
+---
+// Bare /resume → downloads the real PDF (not an in-browser view).
+// GitHub Pages can't set Content-Disposition, so force it client-side
+// with a same-origin <a download> click. base-aware for /v2/ staging.
+const target = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/resume.pdf`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Resume</title>
+  </head>
+  <body>
+    <p>Downloading <a href={target} download="resume.pdf">resume.pdf</a>…</p>
+    <script define:vars={{ target }}>
+      const a = document.createElement('a');
+      a.href = target;
+      a.download = 'resume.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    </script>
+  </body>
+</html>
