@@ -36,7 +36,7 @@ function fmt(d: Date) {
   <div class="max-w-content mx-auto px-6 pb-4 min-h-[calc(100vh-8rem)] flex flex-col">
     <article class="prose-richie flex flex-col flex-1">
       <p class="mt-12 text-[15px] font-mono text-muted tracking-wide">
-        <a class="hover:text-accent" href={`${base}/blog`}>← blog</a>
+        <a class="hover:text-accent" href={`${base}/blog/`}>← blog</a>
       </p>
 
       <header class="mt-6">
@@ -62,7 +62,7 @@ function fmt(d: Date) {
         <blockquote class="intro-quote mt-4">
           {description}
         </blockquote>
-        <TagList tags={tags} basePath="/blog?tags=" />
+        <TagList tags={tags} basePath="/blog/?tags=" />
         {toc.length > 0 && (
           <details class="mt-4 bg-surface-soft rounded-lg px-4 py-3 text-[15px] font-mono text-muted tracking-wide">
             <summary class="cursor-pointer hover:text-accent select-none uppercase tracking-[0.18em] text-[13px]">Table of contents</summary>
@@ -95,8 +95,8 @@ function fmt(d: Date) {
 
       {(prev || next) && (
         <nav class="mt-auto pt-6 border-t border-divider flex justify-between text-[15px] font-mono text-muted tracking-wide clear-both">
-          {prev ? <a class="hover:text-accent max-w-[45%]" href={`${base}/blog/${prev.slug}`}>← {prev.title}</a> : <span />}
-          {next ? <a class="hover:text-accent max-w-[45%] text-right" href={`${base}/blog/${next.slug}`}>{next.title} →</a> : <span />}
+          {prev ? <a class="hover:text-accent max-w-[45%]" href={`${base}/blog/${prev.slug}/`}>← {prev.title}</a> : <span />}
+          {next ? <a class="hover:text-accent max-w-[45%] text-right" href={`${base}/blog/${next.slug}/`}>{next.title} →</a> : <span />}
         </nav>
       )}
     </article>

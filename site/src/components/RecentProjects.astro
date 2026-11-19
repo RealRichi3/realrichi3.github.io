@@ -17,8 +17,8 @@ const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
     {recent.map((p) => {
       const detail = p.body && p.body.trim().length > 0;
       const href = detail
-        ? `${base}/projects/${p.slug}`
-        : p.data.links.site ?? p.data.links.repo ?? `${base}/projects/${p.slug}`;
+        ? `${base}/projects/${p.slug}/`
+        : p.data.links.site ?? p.data.links.repo ?? `${base}/projects/${p.slug}/`;
       const external = !!(!detail && (p.data.links.site || p.data.links.repo));
       return (
         <li>
@@ -43,7 +43,7 @@ const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
             </span>
           </div>
           <Description text={p.data.oneLiner} />
-          <TagList tags={p.data.stack} basePath="/projects?tags=" />
+          <TagList tags={p.data.stack} basePath="/projects/?tags=" />
         </li>
       );
     })}
@@ -51,7 +51,7 @@ const recent = all.slice(0, HOMEPAGE_LIMITS.projects);
   </ul>
   {all.length > 0 && (
     <p class="see-more mt-5 text-[16px]">
-      <a class="text-accent" href={`${base}/projects`}>See all {all.length} projects →</a>
+      <a class="text-accent" href={`${base}/projects/`}>See all {all.length} projects →</a>
     </p>
   )}
 </section>

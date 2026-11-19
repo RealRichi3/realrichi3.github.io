@@ -36,10 +36,10 @@ function truncate(s: string | undefined, n: number) {
             <span>{rt.minutes} Min Read</span>
           </div>
           <p class="mt-0.5 text-[17px]">
-            <a class="text-accent hover:underline" href={`${base}/blog/${p.slug}`}>{p.data.title}</a>
+            <a class="text-accent hover:underline" href={`${base}/blog/${p.slug}/`}>{p.data.title}</a>
           </p>
           {desc && <p class="mt-0.5 text-[16px] leading-snug text-muted">{desc}</p>}
-          <TagList tags={p.data.tags} basePath="/blog?tags=" />
+          <TagList tags={p.data.tags} basePath="/blog/?tags=" />
         </li>
       );
     })}
@@ -47,7 +47,7 @@ function truncate(s: string | undefined, n: number) {
   </ul>
   {all.length > 0 && (
     <p class="see-more mt-5 text-[16px]">
-      <a class="text-accent" href={`${base}/blog`}>See all {all.length} writings →</a>
+      <a class="text-accent" href={`${base}/blog/`}>See all {all.length} writings →</a>
     </p>
   )}
 </section>

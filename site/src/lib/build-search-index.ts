@@ -20,11 +20,11 @@ export async function buildSearchIndex(): Promise<SearchEntry[]> {
   NAV_ITEMS.forEach((n) => entries.push({ kind: 'nav', title: n.label, href: n.href }));
 
   posts.forEach((p) =>
-    entries.push({ kind: 'post', title: p.data.title, subtitle: p.data.description, href: `/blog/${p.slug}` })
+    entries.push({ kind: 'post', title: p.data.title, subtitle: p.data.description, href: `/blog/${p.slug}/` })
   );
 
   projects.forEach((p) =>
-    entries.push({ kind: 'project', title: p.data.name, subtitle: p.data.oneLiner, href: `/projects/${p.slug}` })
+    entries.push({ kind: 'project', title: p.data.name, subtitle: p.data.oneLiner, href: `/projects/${p.slug}/` })
   );
 
   reading.forEach((r) =>

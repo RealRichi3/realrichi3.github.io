@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /v2/
+
+Sitemap: https://richiemoluno.com/sitemap-index.xml

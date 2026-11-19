@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <span>{rt.minutes} Min Read</span>
           </div>
           <p class="mt-1 text-[18px]">
-            <a class="text-accent hover:underline" href={`${base}/blog/${p.slug}`}>{p.data.title}</a>
+            <a class="text-accent hover:underline" href={`${base}/blog/${p.slug}/`}>{p.data.title}</a>
           </p>
           <Description text={p.data.description} />
           <TagList tags={p.data.tags} basePath="" mode="toggle" />

@@ -25,14 +25,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <a class="text-accent hover:underline" href={r.data.url} rel="noopener" target="_blank">{r.data.title} ↗</a>
         </p>
         <Description text={r.data.note} />
-        <TagList tags={r.data.tags} basePath="/reading?tags=" />
+        <TagList tags={r.data.tags} basePath="/reading/?tags=" />
       </li>
     ))}
     {recent.length === 0 && <li class="text-muted text-sm">no bookmarks yet.</li>}
   </ul>
   {all.length > 0 && (
     <p class="see-more mt-5 text-[16px]">
-      <a class="text-accent" href={`${base}/reading`}>See all {all.length} bookmarks →</a>
+      <a class="text-accent" href={`${base}/reading/`}>See all {all.length} bookmarks →</a>
     </p>
   )}
 </section>
